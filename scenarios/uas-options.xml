@@ -85,27 +85,8 @@
   <recv request="BYE">
   </recv>
 
-  <send>
-    <![CDATA[
-
-      SIP/2.0 200 OK
-      [last_Via:]
-      [last_From:]
-      [last_To:]
-      [last_Call-ID:]
-      [last_CSeq:]
-      Contact: <sip:[local_ip]:[local_port];transport=[transport]>
-      Content-Length: 0
-
-    ]]>
-  </send>
-
-  <recv request="OPTIONS" next="2">
+  <recv request="OPTIONS" optional="true" next="6">
   </recv>
-
-  <pause milliseconds="4000"/>
-
-  <send retrans="500">
 
   <send>
     <![CDATA[
