@@ -85,7 +85,7 @@
   <recv request="BYE">
   </recv>
 
-  <recv request="OPTIONS" next="6">
+  <recv request="OPTIONS">
   </recv>
 
   <send>
