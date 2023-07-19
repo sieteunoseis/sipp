@@ -26,7 +26,7 @@ $ docker run -it sipp
 You can pass your SIPp arguments to the run command, example:
 
 ```
-$ docker run -it sipp -sn uac
+$ docker run -it sieteunoseis/sipp -sn uac
 ```
 
 If you want to use custom scenarios you can use the Docker VOLUME argument to include your local files inside your Docker image.  The `-v $PWD/scenarios` is your local hosts working directory and `/sipp` is the containers working directory.
@@ -36,9 +36,25 @@ $ docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac.xml D
 ```
 ## Examples
 
-### Call ID
+### Active Media (UAC)
 
-### Call ID
+Play audio from pcap file to remote host
+
+```
+$ sudo docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-active.xml DEST_IP -s DEST_NUMBER -cid_str $(uuidgen)@%s
+```
+
+### Hold (UAC)
+
+Play audio from pcap file to remote host
+
+```
+$ sudo docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-active.xml DEST_IP -s DEST_NUMBER -cid_str $(uuidgen)@%s
+```
+
+### Call ID (UAC)
+
+Set Call-ID header to a random UUID.
 
 Assuming ```uuidgen``` is installed on your box you can use something like this:
 
@@ -49,6 +65,6 @@ Example:
 
 ```
 ...
-Call-ID: 5d91975e-202d-44a6-b374-4171e64bb785@172.17.0.8
+Call-ID: 5d91975e-202d-44a6-b374-4171e64bb785
 ...
 ```
