@@ -68,7 +68,7 @@
 
   <nop crlf="true">
     <action>
-        <exec play_pcap_audio="../pcap/g711a.pcap"/>
+        <exec play_pcap_audio="./pcap/g711a.pcap"/>
     </action>
   </nop>
   
