@@ -1,0 +1,23 @@
+<send next="1">
+<![CDATA[
+      ACK....or your last message.
+  ]]>
+</send>
+
+## Do nothing ##
+<recv request="OPTIONS" next="6">
+</recv>
+## Do nothing ##
+
+<recv request="OPTIONS" optional="true" next="2">
+</recv>
+
+<label id="1"/>
+
+<pause milliseconds="4000"/>
+
+<send retrans="500">
+<![CDATA[
+      BYE......
+  ]]>
+</send>
