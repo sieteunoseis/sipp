@@ -5,6 +5,10 @@
 - [Github Repo](https://github.com/sieteunoseis/sipp)
 - [Docker Hub](https://hub.docker.com/r/sieteunoseis/sipp/)
 
+https://github.com/pbertera/SIPp-by-example
+https://github.com/saghul/sipp-scenarios
+https://tomeko.net/other/sipp/sipp_cheatsheet.php?lang=en
+
 ## Getting Started
 
 Pull the latest image using:
