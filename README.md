@@ -42,3 +42,10 @@ Assuming ```uuidgen``` is installed on your box you can use something like this:
 ```
 $ docker run -it sieteunoseis/sipp uac DEST_IP -s DEST_NUMBER -cid_str $(uuidgen)@%s
 ```
+Example:
+
+```
+...
+Call-ID: 5d91975e-202d-44a6-b374-4171e64bb785@172.17.0.8
+...
+```

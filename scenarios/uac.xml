@@ -7,7 +7,7 @@
   From: sipp <sip:sipp@[local_ip]:[local_port]>;tag=[call_number]
   To: sut <sip:[service]@[remote_ip]:[remote_port]>
   Call-ID: [call_id]
-  Cseq: 1 INVITE
+  CSeq: 1 INVITE
   Contact: sip:sipp@[local_ip]:[local_port]
   Content-Type: application/sdp
   Content-Length: [len]
