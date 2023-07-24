@@ -123,13 +123,15 @@
   <recv response="183" optional="true">
   </recv>
 
-  <!-- <recv response="100" optional="true" response_txn="t38invite"/>
+  <!-- By adding rrs="true" (Record Route Sets), the route sets         -->
+  <!-- are saved and used for following messages sent. Useful to test   -->
+  <!-- against stateful SIP proxies/B2BUAs.                             -->
+  <recv response="200" rtd="true">
+  </recv>
 
-  <recv response="488" optional="true" response_txn="t38invite" next="abort"/>
-
-  <recv response="200" response_txn="t38invite"/> -->
-
-  <send ack_txn="t38invite">
+  <!-- Packet lost can be simulated in any send/recv message by         -->
+  <!-- by adding the 'lost = "10"'. Value can be [1-100] percent.       -->
+  <send>
     <![CDATA[
 
       ACK sip:[service]@[remote_ip]:[remote_port] SIP/2.0
