@@ -140,7 +140,7 @@
 
   <nop>
     <action>
-      <exec play_pcap_audio="./pcap/fax.pcap"/>
+      <exec play_pcap_image="./pcap/fax.pcap"/>
     </action>
   </nop>
 
@@ -151,7 +151,7 @@
 
   ****************************************************************** -->
 
-  <recv request="INVITE"/>
+  <!-- <recv request="INVITE"/>
 
   <send retrans="500">
     <![CDATA[
@@ -198,7 +198,7 @@
       Content-Length: 0
 
     ]]>
-  </send>
+  </send> -->
 
 
   <!-- *****************************************************************
