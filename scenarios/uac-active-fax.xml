@@ -140,4 +140,15 @@
     ]]>
   </send>
 
+    <!-- *****************************************************************
+
+  Finalize
+
+  ****************************************************************** -->
+
+  <label id="done"/>
+
+  <!-- Keep call open to be able to retransmit stuff -->
+  <timewait milliseconds="2000"/>
+
 </scenario>
