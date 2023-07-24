@@ -113,11 +113,21 @@
     ]]>
   </send>
 
-  <recv response="100" optional="true" response_txn="t38invite"/>
+  <recv response="100"
+        optional="true">
+  </recv>
+
+  <recv response="180" optional="true">
+  </recv>
+
+  <recv response="183" optional="true">
+  </recv>
+
+  <!-- <recv response="100" optional="true" response_txn="t38invite"/>
 
   <recv response="488" optional="true" response_txn="t38invite" next="abort"/>
 
-  <recv response="200" response_txn="t38invite"/>
+  <recv response="200" response_txn="t38invite"/> -->
 
   <send ack_txn="t38invite">
     <![CDATA[
