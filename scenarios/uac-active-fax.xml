@@ -109,6 +109,7 @@
       a=T38FaxRateManagement:transferredTCF
       a=T38FaxMaxBuffer:200
       a=T38FaxMaxDatagram:200
+      a=T38FaxFillBitRemoval:0
       a=T38FaxUdpEC:t38UDPRedundancy
 
     ]]>
