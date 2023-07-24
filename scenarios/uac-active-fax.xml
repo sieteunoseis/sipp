@@ -6,10 +6,10 @@
   <send retrans="500">
     <![CDATA[
 
-      INVITE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
+      INVITE sip:[service]@192.168.20.250:[remote_port] SIP/2.0
       Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
       From: <sip:[tel]@[local_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
-      To: [service] <sip:[service]@[remote_ip]:[remote_port]>
+      To: [service] <sip:[service]@192.168.20.250:[remote_port]>
       Call-ID: [call_id]
       CSeq: [cseq] INVITE
       Contact: sip:[tel]@[local_ip]:[local_port]
@@ -53,10 +53,10 @@
   <send>
     <![CDATA[
 
-      ACK sip:[service]@[remote_ip]:[remote_port] SIP/2.0
+      ACK sip:[service]@192.168.20.250:[remote_port] SIP/2.0
       Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
       From: <sip:[tel]@[local_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
-      To: [service] <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
+      To: [service] <sip:[service]@192.168.20.250:[remote_port]>[peer_tag_param]
       Call-ID: [call_id]
       CSeq: 1 ACK
       Contact: sip:[tel]@[local_ip]:[local_port]
@@ -86,10 +86,10 @@
   <send start_txn="t38invite">
     <![CDATA[
 
-      INVITE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
+      INVITE sip:[service]@192.168.20.250:[remote_port] SIP/2.0
       Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
-      From: <sip:[service]@[local_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
-      To: [tel] <sip:[tel]@[remote_ip]:[remote_port]>
+      From: <sip:[tel]@[local_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
+      To: [service] <sip:[service]@192.168.20.250:[remote_port]>
       Call-ID: [call_id]
       CSeq: [cseq] INVITE
       Contact: sip:[tel]@[local_ip]:[local_port]
