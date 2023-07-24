@@ -222,7 +222,7 @@
 
   <label id="abort"/>
 
-  <send ack_txn="t38invite">
+  <send retrans="500">
     <![CDATA[
 
       ACK [next_url] SIP/2.0
