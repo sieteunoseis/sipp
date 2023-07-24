@@ -51,7 +51,7 @@ Single call is made.
 Audio is played from a pcap file.
 
 ```
-$ sudo docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-active.xml DEST_IP -s DEST_NUMBER -m 1
+$ sudo docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-active.xml DEST_IP -s DEST_NUMBER -key tel FROM_NUMBER -m 1
 ```
 
 ### Passive Media (UAC)
