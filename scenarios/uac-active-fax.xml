@@ -14,7 +14,7 @@
       CSeq: [cseq] INVITE
       Contact: sip:[tel]@[local_ip]:[local_port]
       Max-Forwards: 70
-      Subject: Performance Test
+      Subject: Invite
       Content-Type: application/sdp
       Content-Length: [len]
 
@@ -88,12 +88,13 @@
 
       INVITE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
       Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
-      From: <sip:[tel]@[local_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
-      To: [service] <sip:[service]@[remote_ip]:[remote_port]>
+      From: <sip:[service]@[local_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
+      To: [tel] <sip:[tel]@[remote_ip]:[remote_port]>
       Call-ID: [call_id]
       CSeq: [cseq] INVITE
       Contact: sip:[tel]@[local_ip]:[local_port]
       Max-Forwards: 70
+      Subject: T38 Invite
       Content-Type: application/sdp
       Content-Length: [len]
 
