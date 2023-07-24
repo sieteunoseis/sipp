@@ -132,7 +132,7 @@
 
   <!-- Send a bit of noise to start the RTP. You may need to use
        the -i MY_IP command line option. -->
-  <pause milliseconds="500"/>
+  <pause milliseconds="3000"/>
 
   <nop>
     <action>
@@ -140,7 +140,7 @@
     </action>
   </nop>
 
-  <pause milliseconds="500"/>
+  <pause milliseconds="3000"/>
 
 
   <!-- *****************************************************************
