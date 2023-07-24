@@ -140,7 +140,7 @@
 
   <nop>
     <action>
-      <exec play_pcap_image="./pcap/fax.pcap"/>
+      <exec play_pcap_audio="./pcap/fax.pcap"/>
     </action>
   </nop>
 
