@@ -50,6 +50,8 @@ Single call is made.
 
 Audio is played from a pcap file.
 
+Example shows a single call being made to DEST_IP with the destination number of DEST_NUMBER and the From header set to FROM_NUMBER.
+
 ```
 $ sudo docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-active.xml DEST_IP -s DEST_NUMBER -key tel FROM_NUMBER -m 1
 ```
@@ -84,11 +86,13 @@ $ sudo docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-
 
 ### FAX (UAC)
 
-UAC scenario for sending a fax
+UAC scenario for sending a fax.
 
 Single call is made.
 
 Audio is played from a pcap file.
+
+NOTE: This scenario is untested, Twilio does not support T.38.
 
 ```
 $ sudo docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-fax.xml DEST_IP -s DEST_NUMBER -m 1
