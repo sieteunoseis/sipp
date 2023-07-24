@@ -16,11 +16,11 @@
   <send retrans="500" start_txn="invite">
     <![CDATA[
 
-      INVITE sip:[tel]@[remote_ip]:[remote_port] SIP/2.0
+      INVITE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
       Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
-      From: sip:[service]@[local_ip]:[local_port];tag=[pid]SIPpTag00[call_number]
-      To: sip:[tel]@[remote_ip]:[remote_port]
-      Contact: sip:[service]@[local_ip]:[local_port]
+      From: sip:[tel]@[local_ip]:[local_port];tag=[pid]SIPpTag00[call_number]
+      To: sip:[service]@[remote_ip]:[remote_port]
+      Contact: sip:[tel]@[local_ip]:[local_port]
       Call-ID: [call_id]
       CSeq: [cseq] INVITE
       Max-Forwards: 70
@@ -58,11 +58,11 @@
   <send ack_txn="invite">
     <![CDATA[
 
-      ACK sip:[tel]@[remote_ip]:[remote_port] SIP/2.0
+      ACK sip:[service]@[remote_ip]:[remote_port] SIP/2.0
       [last_Via:]
       [last_From:]
       [last_To:]
-      Contact: sip:[service]@[local_ip]:[local_port]
+      Contact: sip:[tel]@[local_ip]:[local_port]
       Call-ID: [call_id]
       CSeq: [cseq] ACK
       Max-Forwards: 70
@@ -74,11 +74,11 @@
   <send retrans="500" start_txn="invite">
     <![CDATA[
 
-      INVITE sip:[tel]@[remote_ip]:[remote_port] SIP/2.0
+      INVITE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
       Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
-      From: sip:[service]@[local_ip]:[local_port];tag=[pid]SIPpTag00[call_number]
-      To: sip:[tel]@[remote_ip]:[remote_port]
-      Contact: sip:[service]@[local_ip]:[local_port]
+      From: sip:[tel]@[local_ip]:[local_port];tag=[pid]SIPpTag00[call_number]
+      To: sip:[service]@[remote_ip]:[remote_port]
+      Contact: sip:[tel]@[local_ip]:[local_port]
       [authentication]
       Call-ID: [call_id]
       CSeq: [cseq] INVITE
@@ -118,7 +118,7 @@
       [routes]
       [last_From:]
       [last_To:]
-      Contact: sip:[service]@[local_ip]:[local_port]
+      Contact: sip:[tel]@[local_ip]:[local_port]
       Call-ID: [call_id]
       CSeq: [cseq] ACK
       Max-Forwards: 70
@@ -154,7 +154,7 @@
       [routes]
       [last_From:]
       [last_To:]
-      Contact: sip:[service]@[local_ip]:[local_port]
+      Contact: sip:[tel]@[local_ip]:[local_port]
       Call-ID: [call_id]
       CSeq: [cseq] INVITE
       Max-Forwards: 70
@@ -191,7 +191,7 @@
       [routes]
       [last_From:]
       [last_To:]
-      Contact: sip:[service]@[local_ip]:[local_port]
+      Contact: sip:[tel]@[local_ip]:[local_port]
       Call-ID: [call_id]
       CSeq: [cseq] ACK
       Max-Forwards: 70
@@ -227,7 +227,7 @@
       [last_Record-Route:]
       [last_From:]
       [last_To:]
-      Contact: sip:[service]@[local_ip]:[local_port]
+      Contact: sip:[tel]@[local_ip]:[local_port]
       [last_Call-ID:]
       [last_CSeq:]
       Max-Forwards: 70
@@ -258,7 +258,7 @@
       [last_Record-Route:]
       [last_From:]
       [last_To:]
-      Contact: sip:[service]@[local_ip]:[local_port]
+      Contact: sip:[tel]@[local_ip]:[local_port]
       [last_Call-ID:]
       [last_CSeq:]
       Content-Length: 0
@@ -283,7 +283,7 @@
       [routes]
       [last_From:]
       [last_To:]
-      Contact: sip:[service]@[local_ip]:[local_port]
+      Contact: sip:[tel]@[local_ip]:[local_port]
       Call-ID: [call_id]
       CSeq: [cseq] ACK
       Max-Forwards: 70
@@ -300,7 +300,7 @@
       [routes]
       [last_From:]
       [last_To:]
-      Contact: sip:[service]@[local_ip]:[local_port]
+      Contact: sip:[tel]@[local_ip]:[local_port]
       Call-ID: [call_id]
       CSeq: [cseq] BYE
       Max-Forwards: 70
