@@ -36,24 +36,62 @@ $ docker run -it sieteunoseis/sipp -sn uac
 If you want to use custom scenarios you can use the Docker VOLUME argument to include your local files inside your Docker image.  The `-v $PWD/scenarios` is your local hosts working directory and `/sipp` is the containers working directory.
 
 ```
-$ docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac.xml DEST_IP -s DEST_NUMBER -m 1
+$ docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac.xml DEST_IP -s DEST_NUMBER
 ```
 ## Examples
 
 ### Active Media (UAC)
 
-Play audio from pcap file to remote host
+UAC scenario for Active media negotiation (SDP offer sent into the INVITE request).
+
+The UAC is responsible for the dialog creation and closure.
+
+Single call is made.
+
+Audio is played from a pcap file.
 
 ```
-$ sudo docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-active.xml DEST_IP -s DEST_NUMBER -cid_str $(uuidgen)@%s
+$ sudo docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-active.xml DEST_IP -s DEST_NUMBER -m 1
+```
+
+### Passive Media (UAC)
+
+UAC scenario for Passive media negotiation (SDP offer sent with the 200 OK).
+
+The UAC is responsible for the dialog creation and closure.
+
+Single call is made.
+
+Audio is played from a pcap file.
+
+```
+$ sudo docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-passive.xml DEST_IP -s DEST_NUMBER -m 1
 ```
 
 ### Hold (UAC)
 
-Play audio from pcap file to remote host
+UAC scenario for call hold using the RFC 3264 specification (a=sendonly/recvonly).
+
+In this scenario the UAC sends the first INVITE, and the hold and retrieve re-INVITEs.
+
+Single call is made.
+
+Audio is played from a pcap file.
 
 ```
-$ sudo docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-active.xml DEST_IP -s DEST_NUMBER -cid_str $(uuidgen)@%s
+$ sudo docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-hold.xml DEST_IP -s DEST_NUMBER -m 1
+```
+
+### FAX (UAC)
+
+UAC scenario for sending a fax
+
+Single call is made.
+
+Audio is played from a pcap file.
+
+```
+$ sudo docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-fax.xml DEST_IP -s DEST_NUMBER -m 1
 ```
 
 ### Call ID (UAC)
