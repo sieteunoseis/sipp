@@ -117,6 +117,8 @@
 
   <recv response="488" optional="true" response_txn="t38invite" next="abort"/>
 
+  <recv response="500" optional="true" response_txn="t38invite" next="abort"/>
+
   <recv response="200" response_txn="t38invite"/>
 
   <send ack_txn="t38invite">
