@@ -149,7 +149,7 @@
   <pause milliseconds="3000"/>
 
   <!-- The 'crlf' option inserts a blank line in the statistics report. -->
-  <send retrans="500" crlf="true">
+  <!-- <send retrans="500" crlf="true">
     <![CDATA[
 
       BYE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
@@ -167,7 +167,7 @@
   </send>
 
   <recv response="200" crlf="true">
-  </recv>
+  </recv> -->
   
 
 </scenario>
