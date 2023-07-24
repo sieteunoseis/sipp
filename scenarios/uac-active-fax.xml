@@ -91,7 +91,7 @@
 
   ****************************************************************** -->
 
-  <send retrans="500">
+  <send start_txn="t38invite">
     <![CDATA[
 
       INVITE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
