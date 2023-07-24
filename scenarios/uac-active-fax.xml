@@ -142,7 +142,9 @@
       <exec play_pcap_audio="./pcap/g711a.pcap"/>
     </action>
   </nop>
-
+  
+  <!-- This delay can be customized by the -d command-line option       -->
+  <!-- or by adding a 'milliseconds = "value"' option here.             -->
   <pause milliseconds="3000"/>
 
 
