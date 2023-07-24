@@ -76,24 +76,25 @@
   <!-- or by adding a 'milliseconds = "value"' option here.             -->
   <pause milliseconds="3000"/>
 
+
   <!-- *****************************************************************
 
   Initiate re-INVITE to T38.
 
   ****************************************************************** -->
 
-  <send retrans="500">
+  <send start_txn="t38invite">
     <![CDATA[
 
-      INVITE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
+      INVITE [next_url] SIP/2.0
       Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
-      From: <sip:[tel]@[local_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
-      To: [service] <sip:[service]@[remote_ip]:[remote_port]>
-      Call-ID: [call_id]
-      CSeq: 1 INVITE
+      [routes]
+      [last_From:]
+      [last_To:]
       Contact: sip:[tel]@[local_ip]:[local_port]
+      Call-ID: [call_id]
+      CSeq: [cseq] INVITE
       Max-Forwards: 70
-      Subject: Performance Test
       Content-Type: application/sdp
       Content-Length: [len]
 
@@ -113,34 +114,23 @@
     ]]>
   </send>
 
-  <recv response="100"
-        optional="true">
-  </recv>
+  <recv response="100" optional="true" response_txn="t38invite"/>
 
-  <recv response="180" optional="true">
-  </recv>
+  <recv response="488" optional="true" response_txn="t38invite" next="abort"/>
 
-  <recv response="183" optional="true">
-  </recv>
+  <recv response="200" response_txn="t38invite"/>
 
-  <!-- By adding rrs="true" (Record Route Sets), the route sets         -->
-  <!-- are saved and used for following messages sent. Useful to test   -->
-  <!-- against stateful SIP proxies/B2BUAs.                             -->
-  <recv response="200" rtd="true">
-  </recv>
-
-  <!-- Packet lost can be simulated in any send/recv message by         -->
-  <!-- by adding the 'lost = "10"'. Value can be [1-100] percent.       -->
-  <send>
+  <send ack_txn="t38invite">
     <![CDATA[
 
-      ACK sip:[service]@[remote_ip]:[remote_port] SIP/2.0
-      Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
-      From: <sip:[tel]@[local_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
-      To: [service] <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
-      Call-ID: [call_id]
-      CSeq: 1 ACK
+      ACK [next_url] SIP/2.0
+      [last_Via:]
+      [routes]
+      [last_From:]
+      [last_To:]
       Contact: sip:[tel]@[local_ip]:[local_port]
+      Call-ID: [call_id]
+      CSeq: [cseq] ACK
       Max-Forwards: 70
       Content-Length: 0
 
@@ -222,7 +212,7 @@
 
   <label id="abort"/>
 
-  <send retrans="500">
+  <send ack_txn="t38invite">
     <![CDATA[
 
       ACK [next_url] SIP/2.0
