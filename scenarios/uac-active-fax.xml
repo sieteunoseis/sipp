@@ -91,18 +91,18 @@
 
   ****************************************************************** -->
 
-  <send start_txn="t38invite">
+  <send retrans="500">
     <![CDATA[
 
-      INVITE [next_url] SIP/2.0
+      INVITE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
       Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
-      [routes]
-      [last_From:]
-      [last_To:]
-      Contact: sip:[tel]@[local_ip]:[local_port]
+      From: <sip:[tel]@[local_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
+      To: [service] <sip:[service]@[remote_ip]:[remote_port]>
       Call-ID: [call_id]
-      CSeq: [cseq] INVITE
+      CSeq: 1 INVITE
+      Contact: sip:[tel]@[local_ip]:[local_port]
       Max-Forwards: 70
+      Subject: Performance Test
       Content-Type: application/sdp
       Content-Length: [len]
 
