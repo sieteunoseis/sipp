@@ -74,7 +74,7 @@
   
   <!-- This delay can be customized by the -d command-line option       -->
   <!-- or by adding a 'milliseconds = "value"' option here.             -->
-  <pause milliseconds="5000"/>
+  <pause milliseconds="3000"/>
 
 
   <!-- *****************************************************************
@@ -83,15 +83,23 @@
 
   ****************************************************************** -->
 
-  <send start_txn="t38invite">
+  <!-- *****************************************************************
+
+  Wait for re-INVITE back to audio.
+
+  ****************************************************************** -->
+
+  <recv request="INVITE"/>
+
+  <send retrans="500">
     <![CDATA[
 
-      INVITE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
+      SIP/2.0 200 OK
       Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
       From: <sip:[tel]@[local_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
       To: [service] <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
       Call-ID: [call_id]
-      CSeq: [cseq] INVITE
+      CSeq: 1 ACK
       Contact: sip:[tel]@[local_ip]:[local_port]
       Max-Forwards: 70
       Content-Length: 0
@@ -112,69 +120,24 @@
     ]]>
   </send>
 
-  <recv response="100" optional="true" response_txn="t38invite"/>
+  <recv request="ACK"/>
 
-  <recv response="488" optional="true" response_txn="t38invite"/>
+  <recv request="BYE"/>
 
-  <recv response="200" response_txn="t38invite"/>
-
-  <send ack_txn="t38invite">
+  <send next="done">
     <![CDATA[
 
-      ACK [next_url] SIP/2.0
+      SIP/2.0 200 OK
       [last_Via:]
-      [routes]
+      [last_Record-Route:]
       [last_From:]
       [last_To:]
-      Contact: sip:[tel]@[local_ip]:[local_port]
-      Call-ID: [call_id]
-      CSeq: [cseq] ACK
-      Max-Forwards: 70
+      Contact: sip:[service]@[local_ip]:[local_port]
+      [last_Call-ID:]
+      [last_CSeq:]
       Content-Length: 0
 
     ]]>
   </send>
-
-  <!-- Enable the nop/action below to replay the FAX image. You may need to use
-       the -i MY_IP command line option. -->
-  <pause milliseconds="500"/>
-
-  <nop>
-    <action>
-      <exec play_pcap_image="./pcap/fax.pcap"/>
-    </action>
-  </nop>
-
-  <!-- This delay can be customized by the -d command-line option       -->
-  <!-- or by adding a 'milliseconds = "value"' option here.             -->
-  <pause milliseconds="3000"/>
-
-  <!-- *****************************************************************
-
-  Wait for re-INVITE back to audio.
-
-  ****************************************************************** -->
-
-  <!-- The 'crlf' option inserts a blank line in the statistics report. -->
-  <!-- <send retrans="500" crlf="true">
-    <![CDATA[
-
-      BYE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
-      Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
-      From: <sip:[tel]@[local_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
-      To: [service] <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
-      Call-ID: [call_id]
-      CSeq: 2 BYE
-      Contact: sip:[tel]@[local_ip]:[local_port]
-      Max-Forwards: 70
-      Subject: Performance Test
-      Content-Length: 0
-
-    ]]>
-  </send>
-
-  <recv response="200" crlf="true">
-  </recv> -->
-  
 
 </scenario>
