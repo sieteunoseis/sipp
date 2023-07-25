@@ -61,10 +61,13 @@ $ docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-activ
 ```
 $ docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-active-g722.xml DEST_IP -s DEST_NUMBER -key tel FROM_NUMBER -m 1
 ```
+
 #### Example with CSV file for multiple calls
 
+Example shows 10 calls being made to DEST_IP with the destination number sourced from the CSV file and the From header set to FROM_NUMBER.
+
 ```
-$ docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-active-g711a.xml -inf test-10.csv DEST_IP -s DEST_NUMBER -key tel FROM_NUMBER -m 1
+$ docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-active-g711a.xml -inf test-10.csv DEST_IP -key tel FROM_NUMBER -m 10
 ```
 
 ### Passive Media (UAC)
