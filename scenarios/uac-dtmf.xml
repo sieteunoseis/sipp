@@ -68,20 +68,9 @@
 
   <nop>
     <action>
-      <!-- fire up the rtp stream with a really short beep,
-           just in case -->
-      <exec play_dtmf="0,50"/>
+      <exec play_dtmf="2123456789,50"/>
     </action>
   </nop>
-  <pause milliseconds="18000"/>
-
-  <nop>
-    <action>
-      <exec play_dtmf="2123456789,500"/>
-      <!-- <exec play_dtmf="[tones],500"/> -->
-    </action>
-  </nop>
-
   <pause milliseconds="18000"/>
 
   <!-- The 'crlf' option inserts a blank line in the statistics report. -->
