@@ -48,14 +48,23 @@ Audio is played from a pcap file.
 
 Example shows a single call being made to DEST_IP with the destination number of DEST_NUMBER and the From header set to FROM_NUMBER.
 
-Scenario options for both g711a and g722 are included.
+Scenario options for g711a, g711u and g722 are included.
 
 ```
 $ docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-active-g711a.xml DEST_IP -s DEST_NUMBER -key tel FROM_NUMBER -m 1
 ```
 
 ```
+$ docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-active-g711u.xml DEST_IP -s DEST_NUMBER -key tel FROM_NUMBER -m 1
+```
+
+```
 $ docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-active-g722.xml DEST_IP -s DEST_NUMBER -key tel FROM_NUMBER -m 1
+```
+#### Example with CSV file for multiple calls
+
+```
+$ docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-active-g711a.xml -inf test-10.csv DEST_IP -s DEST_NUMBER -key tel FROM_NUMBER -m 1
 ```
 
 ### Passive Media (UAC)
@@ -66,7 +75,7 @@ The UAC is responsible for the dialog creation and closure.
 
 Single call is made.
 
-Audio is played from a pcap file.
+Audio is played from a pcap file (g711a).
 
 ```
 $ docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-passive.xml DEST_IP -s DEST_NUMBER -m 1
@@ -126,9 +135,9 @@ $ docker run -it sieteunoseis/sipp uac DEST_IP -s DEST_NUMBER -cid_str $(uuidgen
 Example:
 
 ```
-...
-Call-ID: 5d91975e-202d-44a6-b374-4171e64bb785
-...
+    ...
+    Call-ID: 5d91975e-202d-44a6-b374-4171e64bb785
+    ...
 ```
 
 ### Other Examples
