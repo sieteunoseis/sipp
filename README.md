@@ -48,8 +48,14 @@ Audio is played from a pcap file.
 
 Example shows a single call being made to DEST_IP with the destination number of DEST_NUMBER and the From header set to FROM_NUMBER.
 
+Scenario options for both g711a and g722 are included.
+
 ```
 $ docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-active-g711a.xml DEST_IP -s DEST_NUMBER -key tel FROM_NUMBER -m 1
+```
+
+```
+$ docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-active-g722.xml DEST_IP -s DEST_NUMBER -key tel FROM_NUMBER -m 1
 ```
 
 ### Passive Media (UAC)
