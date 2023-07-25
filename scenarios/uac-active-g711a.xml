@@ -75,7 +75,6 @@
   <!-- This delay can be customized by the -d command-line option       -->
   <!-- or by adding a 'milliseconds = "value"' option here.             -->
   <!-- Pause 90 seconds, which is approximately the duration of the      -->
-  <!-- Pause 90 seconds, which is approximately the duration of the      -->
   <!-- PCAP file                                                        -->
   <pause milliseconds="90000"/>
 
