@@ -23,11 +23,10 @@
       s=-
       c=IN IP[media_ip_type] [media_ip]
       t=0 0
-      m=audio [media_port] RTP/AVP 8 101
-      a=rtpmap:0 PCMU/8000/1
+      m=audio [media_port] RTP/AVP 9 101
+      a=rtpmap:9 G722/8000
       a=rtpmap:101 telephone-event/8000
-      a=fmtp:101 0-15
-      a=ptime:20
+      a=fmtp:101 0-11,16
 
     ]]>
   </send>
@@ -68,13 +67,13 @@
 
   <nop>
     <action>
-        <exec play_pcap_audio="./pcap/g711a.pcap"/>
+        <exec play_pcap_audio="./pcap/g722.pcap"/>
     </action>
   </nop>
   
   <!-- This delay can be customized by the -d command-line option       -->
   <!-- or by adding a 'milliseconds = "value"' option here.             -->
-  <pause milliseconds="3000"/>
+  <pause milliseconds="90000"/>
 
   <!-- The 'crlf' option inserts a blank line in the statistics report. -->
   <send retrans="500" crlf="true">
