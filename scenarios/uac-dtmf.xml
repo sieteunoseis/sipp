@@ -73,11 +73,11 @@
       <exec play_dtmf="0,50"/>
     </action>
   </nop>
-  <pause milliseconds="1500"/>
+  <pause milliseconds="18000"/>
 
   <nop>
     <action>
-      <exec play_dtmf="0123456789*#ABCD,500"/>
+      <exec play_dtmf="2123456789,500"/>
       <!-- <exec play_dtmf="[tones],500"/> -->
     </action>
   </nop>
