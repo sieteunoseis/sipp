@@ -25,7 +25,6 @@
       t=0 0
       m=audio [media_port] RTP/AVP 8 101
       a=rtpmap:0 PCMU/8000/1
-      a=rtpmap:8 PCMA/8000/1
       a=rtpmap:101 telephone-event/8000
       a=fmtp:101 0-15
       a=ptime:20
@@ -69,7 +68,7 @@
 
   <nop>
     <action>
-        <exec play_pcap_audio="./pcap/g711u.pcap"/>
+        <exec play_pcap_audio="./pcap/g711a.pcap"/>
     </action>
   </nop>
   
