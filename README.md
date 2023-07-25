@@ -84,7 +84,7 @@ Audio is played from a pcap file.
 $ sudo docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-hold.xml DEST_IP -s DEST_NUMBER -m 1
 ```
 
-### FAX (UAC)
+### FAX (UAC) - Work in progress. Not working.
 
 UAC scenario for sending a fax.
 
@@ -95,7 +95,7 @@ Audio is played from a pcap file.
 NOTE: This scenario is untested, Twilio does not support T.38.
 
 ```
-$ sudo docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-fax.xml DEST_IP -s DEST_NUMBER -m 1
+$ sudo docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-active-fax.xml DEST_IP -s DEST_NUMBER -m 1
 ```
 
 ### Call ID (UAC)
