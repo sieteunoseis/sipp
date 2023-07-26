@@ -16,6 +16,7 @@
       Contact: sip:[tel]@[local_ip]:[local_port]
       Allow: INVITE,ACK,OPTIONS,BYE,CANCEL,SUBSCRIBE,NOTIFY,REFER,MESSAGE,INFO
       Content-Type: application/sdp
+      Subject: Initial INVITE
       Content-Length: [len]
       Max-Forwards: 70
       v=0
@@ -67,6 +68,13 @@
 
     ]]>
   </send>
+
+  <!-- By adding rrs="true" (Record Route Sets), the route sets         -->
+  <!-- are saved and used for following messages sent. Useful to test   -->
+  <!-- against stateful SIP proxies/B2BUAs.                             -->
+  <recv response="200" rtd="true">
+  </recv>
+
 
   <!-- <recv request=".*" regexp_match="true" /> -->
   <pause milliseconds="10000"/>
