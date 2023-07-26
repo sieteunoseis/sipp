@@ -71,17 +71,17 @@
 
 
   <!-- <recv request=".*" regexp_match="true" /> -->
-  <!-- <pause milliseconds="500"/>
+  <pause milliseconds="500"/>
 
   <nop>
     <action>
         <exec play_pcap_audio="./pcap/g711u.pcap"/>
     </action>
-  </nop> -->
+  </nop>
   
   <!-- This delay can be customized by the -d command-line option       -->
   <!-- or by adding a 'milliseconds = "value"' option here.             -->
-  <!-- <pause milliseconds="1000"/> -->
+  <pause milliseconds="5000"/>
 
 
   <!-- *****************************************************************
