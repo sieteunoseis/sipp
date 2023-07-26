@@ -132,10 +132,11 @@
   <pause milliseconds="500"/>
 
   <nop>
-    <action>
-      <exec play_pcap_audio="g711a.pcap"/>
-    </action>
+        <action>
+        <exec play_pcap_audio="./pcap/dtmf_2833_2.pcap"/>
+        </action>
   </nop>
+
 
   <pause milliseconds="500"/>
 
@@ -206,7 +207,7 @@
 
   <nop>
     <action>
-      <exec play_pcap_image="sendfax-wjdtest20150505.pcap"/>
+      <exec play_pcap_image="./pcap/fax.pcap"/>
     </action>
   </nop>
 
