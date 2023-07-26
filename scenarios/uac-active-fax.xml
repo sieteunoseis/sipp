@@ -94,34 +94,133 @@
   <!-- PCAP file                                                        -->
   <pause milliseconds="1000"/>
 
-  <recv request=".*" regexp_match="true" />
+    <!-- wait for incoming call; assign content of To header to varialble #2 -->
+  <recv request="INVITE" crlf="true">
+    <action>
+      <ereg regexp=".*" search_in="hdr" check_it="true" header="To:" assign_to="2" />
+    </action>  
+  </recv>
 
-  <send>
+  <send retrans="500">
     <![CDATA[
+
       SIP/2.0 200 OK
       [last_Via:]
       [last_From:]
-      [last_To:]
+      [last_To:];tag=[call_number]
       [last_Call-ID:]
       [last_CSeq:]
       Contact: <sip:[local_ip]:[local_port];transport=[transport]>
+      Content-Type: application/sdp
+      Content-Length: [len]
+
+      v=0
+      o=user1 53655765 2353687637 IN IP[local_ip_type] [local_ip]
+      s=-
+      c=IN IP[media_ip_type] [media_ip]
+      t=0 0
+      m=audio [media_port] RTP/AVP 0 
+      a=rtpmap:0 PCMU/8000
+    ]]>
+  </send>
+
+  <!-- assign content of From header to call variable #1 -->
+  <recv request="ACK" crlf="true">
+    <action>
+      <ereg regexp=".*" search_in="hdr" check_it="true" header="From:" assign_to="1" />
+    </action>
+  </recv>
+  
+  <!-- pause in absence of proper fax detection, hopefully fax will start in this time -->
+  <pause milliseconds="3000"/>  
+
+  <!-- re-INVITE with image media, re-INVITE is expected to be accepted -->
+  <!-- note: media port is fixed - SIPP 3.2 gives exception otherwise with no audio or video media -->
+  <send retrans="500">
+    <![CDATA[
+      INVITE [$1] SIP/2.0
+      Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
+      From: [$2];tag=[call_number]
+      To: [$1]
+      [last_Call-ID:]
+      CSeq: 1 INVITE
+      Contact: sip:[local_ip]:[local_port]
+      Max-Forwards: 10
+      Content-Type: application/sdp
+      Content-Length: [len]
+
+      v=0
+      o=BroadWorks 65527945 2 IN IP[local_ip_type] [local_ip]
+      s=-
+      c=IN IP[media_ip_type] [media_ip]
+      t=0 0
+      m=image 666 udptl t38
+      a=sendrecv
+      a=T38FaxVersion:0
+      a=T38MaxBitRate:9600
+      a=T38FaxRateManagement:transferredTCF
+      a=T38FaxMaxBuffer:1000
+      a=T38FaxMaxDatagram:200
+      a=T38FaxUdpEC:t38UDPRedundancy
+    ]]>
+  </send>  
+
+  <recv response="100" optional="true">
+  </recv>
+
+  <recv response="180" optional="true">
+  </recv>
+
+  <recv response="200">
+  </recv>
+
+  <send>
+    <![CDATA[
+
+      ACK [$1] SIP/2.0
+      Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
+      From: <sip:[local_ip]>;tag=[call_number]
+      [last_To:]
+      Call-ID: [call_id]
+      CSeq: [cseq] ACK
+      Contact: sip:[local_ip]:[local_port]
+      Max-Forwards: 10
       Content-Length: 0
 
     ]]>
   </send>
 
+  <!-- Call drop may be expected faster due to lack of actual UDPTL endpoint -->
+  <pause milliseconds="15000" />
 
 
-  <!-- Keep the call open for a while in case the 200 is lost to be     -->
-  <!-- able to retransmit it if we receive the BYE again.               -->
-  <timewait milliseconds="4000"/>
+  <send retrans="500">
+    <![CDATA[
+
+      BYE [$1] SIP/2.0
+      Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
+      From: <sip:[local_ip]>;tag=[call_number]      
+      [last_To:]
+      Call-ID: [call_id]
+      CSeq: [cseq] BYE
+      Contact: sip:sipp@[local_ip]:[local_port]
+      Max-Forwards: 10
+      Content-Length: 0
+
+    ]]>
+  </send>
+
+  <recv response="200" crlf="true">
+  </recv>
+  
+  
 
 
   <!-- definition of the response time repartition table (unit is ms)   -->
   <ResponseTimeRepartition value="10, 20, 30, 40, 50, 100, 150, 200"/>
 
   <!-- definition of the call length repartition table (unit is ms)     -->
-  <CallLengthRepartition value="10, 50, 100, 500, 1000, 5000, 10000"/>
+  <CallLengthRepartition value="10, 50, 100, 500, 1000, 5000, 10000"/>  
 
 </scenario>
 
