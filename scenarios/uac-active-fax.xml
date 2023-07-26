@@ -88,6 +88,7 @@
     </action>
   </nop>
 
+  <pause milliseconds="500"/>
   <!-- Pause 8 seconds, which is approximately the duration of the      -->
   <!-- PCAP file                                                        -->
   <pause milliseconds="1000"/>
@@ -104,6 +105,18 @@
       [last_CSeq:]
       Contact: <sip:[local_ip]:[local_port];transport=[transport]>
       Content-Length: 0
+      v=0
+      o=- 1690247308 2 IN IP[local_ip_type] [local_ip]
+      s=SIPp/v.3.7.1
+      c=IN IP4 [local_ip]
+      t=0 0
+      m=image [media_port] udptl t38
+      a=T38FaxVersion:0
+      a=T38MaxBitRate:14400
+      a=T38FaxRateManagement:transferredTCF
+      a=T38FaxMaxBuffer:2000
+      a=T38FaxMaxDatagram:528
+      a=T38FaxUdpEC:t38UDPRedundancy
 
     ]]>
   </send>
