@@ -143,8 +143,9 @@ Example:
     ...
 ```
 
-### Other Examples
-[SIPp-by-example](https://github.com/pbertera/SIPp-by-example)
-[sipp-scenarios](https://github.com/saghul/sipp-scenarios)
-[sipp-scenarios](https://github.com/ossobv/sipp-scenarios)
-[sipp/sipp_cheatsheet](https://tomeko.net/other/sipp/sipp_cheatsheet.php?lang=en)
+### Other Examples/Scenarios
+
+- [SIPp-by-example](https://github.com/pbertera/SIPp-by-example)
+- [sipp-scenarios](https://github.com/saghul/sipp-scenarios)
+- [sipp-scenarios](https://github.com/ossobv/sipp-scenarios)
+- [sipp/sipp_cheatsheet](https://tomeko.net/other/sipp/sipp_cheatsheet.php?lang=en)
