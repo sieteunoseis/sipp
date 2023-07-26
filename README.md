@@ -143,9 +143,11 @@ Example:
     ...
 ```
 
-### Other Examples/Scenarios
+### Other Examples/Scenarios/Guides
 
 - [SIPp-by-example](https://github.com/pbertera/SIPp-by-example)
 - [sipp-scenarios](https://github.com/saghul/sipp-scenarios)
 - [sipp-scenarios](https://github.com/ossobv/sipp-scenarios)
 - [sipp/sipp_cheatsheet](https://tomeko.net/other/sipp/sipp_cheatsheet.php?lang=en)
+- [sipp with Cisco CUCM](https://dmkravch.github.io/2018-01-21-sipp-with-cucm/)
+- [Generating SIP traffic with SIPp (Video)](https://www.youtube.com/watch?v=Z3XQ3qZ3XqQ)
