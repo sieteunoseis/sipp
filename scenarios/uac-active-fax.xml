@@ -65,9 +65,9 @@
   </send>
 
   <nop>
-    <action>
-        <exec play_pcap_audio="./pcap/g711a.pcap"/>
-    </action>
+        <action>
+        <exec play_pcap_audio="./pcap/dtmf_2833_2.pcap"/>
+        </action>
   </nop>
   
   <!-- This delay can be customized by the -d command-line option       -->
