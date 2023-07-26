@@ -114,56 +114,6 @@
     ]]>
   </send>
 
-  <recv request="ACK"/>
-
-  <recv request="BYE"/>
-
-  <send next="done">
-    <![CDATA[
-
-      SIP/2.0 200 OK
-      [last_Via:]
-      [last_Record-Route:]
-      [last_From:]
-      [last_To:]
-      Contact: sip:[tel]@[host_ip]:[local_port]
-      [last_Call-ID:]
-      [last_CSeq:]
-      Content-Length: 0
-
-    ]]>
-  </send>
-
-  <!-- The 'crlf' option inserts a blank line in the statistics report. -->
-  <send retrans="500" crlf="true">
-    <![CDATA[
-
-      BYE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
-      Via: SIP/2.0/[transport] [host_ip]:[local_port];branch=[branch]
-      From: sipp <sip:sipp@[host_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
-      To: [service] <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
-      Call-ID: [call_id]
-      CSeq: 2 BYE
-      Contact: sip:sipp@[host_ip]:[local_port]
-      Max-Forwards: 70
-      Subject: Performance Test
-      Content-Length: 0
-
-    ]]>
-  </send>
-
-  <recv response="200" crlf="true">
-  </recv>
-
-
-  <!-- *****************************************************************
-
-  Finalize
-
-  ****************************************************************** -->
-
-  <label id="done"/>
-
   <!-- Keep call open to be able to retransmit stuff -->
   <timewait milliseconds="2000"/>
 
