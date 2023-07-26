@@ -67,7 +67,7 @@ $ docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-activ
 Example shows 10 calls being made to DEST_IP with the destination number sourced from the CSV file and the From header set to FROM_NUMBER.
 
 ```
-$ docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-active-g711a.xml -inf test-10.csv DEST_IP -key tel FROM_NUMBER -m 10
+$ docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-active-g711a-csv.xml -inf test-10.csv DEST_IP -key tel FROM_NUMBER -m 10
 ```
 
 ### Passive Media (UAC)
@@ -95,7 +95,7 @@ Single call is made.
 Audio is played from a pcap file.
 
 ```
-$ docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-hold.xml DEST_IP -s DEST_NUMBER -m 1
+$ docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-hold.xml DEST_IP -s DEST_NUMBER -key tel FROM_NUMBER -m 1
 ```
 
 ### FAX (UAC) - Work in progress. Not working.
@@ -109,7 +109,7 @@ Audio is played from a pcap file.
 NOTE: This scenario is untested, Twilio does not support T.38.
 
 ```
-$ docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-active-fax.xml DEST_IP -s DEST_NUMBER -m 1
+$ docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-active-fax.xml DEST_IP -s DEST_NUMBER -key tel FROM_NUMBER -m 1
 ```
 
 ### DTMF (UAC)
@@ -123,7 +123,7 @@ DTMF tones are played from a pcap file(s).
 NOTE: Tested with [Test Call](https://testcall.com/804-222-1111/). 
 
 ```
-$ docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-dtmf.xml DEST_IP -s DEST_NUMBER -m 1
+$ docker run -it -v $PWD/scenarios:/sipp -p 5060 sieteunoseis/sipp -sf uac-dtmf.xml DEST_IP -s DEST_NUMBER -key tel FROM_NUMBER -m 1
 ```
 
 ### Call ID (UAC)
