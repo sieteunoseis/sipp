@@ -67,6 +67,8 @@
     ]]>
   </send>
 
+  <recv request=".*" regexp_match="true" />
+
   <nop>
     <action>
         <exec play_pcap_audio="./pcap/g711u.pcap"/>
