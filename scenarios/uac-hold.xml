@@ -31,7 +31,7 @@
       INVITE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
       Via: SIP/2.0/[transport] [host_ip]:[local_port];branch=[branch]
       From: <sip:[tel]@[host_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
-      To: <sip:[service]@[remote_ip]:[remote_port]>
+      To: [service] <sip:[service]@[remote_ip]:[remote_port]>
       Call-ID: [call_id]
       CSeq: 1 INVITE
       Contact: sip:[tel]@[host_ip]:[local_port]
@@ -76,7 +76,7 @@
       ACK sip:[service]@[remote_ip]:[remote_port] SIP/2.0
       Via: SIP/2.0/[transport] [host_ip]:[local_port];branch=[branch]
       From: <sip:[tel]@[host_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
-      To: <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
+      To: [service] <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
       Call-ID: [call_id]
       CSeq: 1 ACK
       Contact: sip:[tel]@[host_ip]:[local_port]
@@ -96,7 +96,7 @@
       INVITE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
       Via: SIP/2.0/[transport] [host_ip]:[local_port];branch=[branch]
       From: <sip:[tel]@[host_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
-      To: <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
+      To: [service] <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
       Call-ID: [call_id]
       CSeq: 2 INVITE
       Contact: sip:[tel]@[host_ip]:[local_port]
@@ -135,7 +135,7 @@
       ACK sip:[service]@[remote_ip]:[remote_port] SIP/2.0
       Via: SIP/2.0/[transport] [host_ip]:[local_port];branch=[branch]
       From: <sip:[tel]@[host_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
-      To: <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
+      To: [service] <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
       Call-ID: [call_id]
       CSeq: 2 ACK
       Contact: sip:[tel]@[host_ip]:[local_port]
@@ -154,7 +154,7 @@
       INVITE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
       Via: SIP/2.0/[transport] [host_ip]:[local_port];branch=[branch]
       From: <sip:[tel]@[host_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
-      To: <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
+      To: [service] <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
       Call-ID: [call_id]
       CSeq: 3 INVITE
       Contact: sip:[tel]@[host_ip]:[local_port]
@@ -193,7 +193,7 @@
       ACK sip:[service]@[remote_ip]:[remote_port] SIP/2.0
       Via: SIP/2.0/[transport] [host_ip]:[local_port];branch=[branch]
       From: <sip:[tel]@[host_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
-      To: <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
+      To: [service] <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
       Call-ID: [call_id]
       CSeq: 3 ACK
       Contact: sip:[tel]@[host_ip]:[local_port]
@@ -212,7 +212,7 @@
 
   <!-- Pause 5 seconds, which is approximately the duration of the      -->
   <!-- PCAP file                                                        -->
-  <pause milliseconds="5000"/>
+  <pause milliseconds="90000"/>
 
   <!-- The 'crlf' option inserts a blank line in the statistics report. -->
   <send retrans="500">
@@ -220,8 +220,8 @@
 
       BYE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
       Via: SIP/2.0/[transport] [host_ip]:[local_port];branch=[branch]
-      From: sipp <sip:[tel]@[host_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
-      To: sut <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
+      From: <sip:[tel]@[host_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
+      To: [service] <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
       Call-ID: [call_id]
       CSeq: 4 BYE
       Contact: sip:[tel]@[host_ip]:[local_port]

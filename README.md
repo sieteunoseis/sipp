@@ -28,13 +28,21 @@ You can pass your SIPp arguments to the run command, example:
 ```
 $ docker run -it sieteunoseis/sipp -sn uac
 ```
-
 If you want to use custom scenarios you can use the Docker VOLUME argument to include your local files inside your Docker image.  The `-v $PWD/scenarios` is your local hosts working directory and `/sipp` is the containers working directory.
+
+```
+$ docker run -it -v $PWD/scenarios:/sipp -p 5060:5060/udp sieteunoseis/sipp -sf XML_FILE
+```
+
+## Examples
+
+### Basic UAC
+
+Basic UAC scenario. The UAC is responsible for the dialog creation and closure. Single call is made with a 5 second pause between the INVITE and BYE.
 
 ```
 $ docker run -it -v $PWD/scenarios:/sipp -p 5060:5060/udp sieteunoseis/sipp -sf uac.xml DEST_IP -s DEST_NUMBER -key tel FROM_NUMBER -key host_ip DOCKER_HOST_IP -m 1
 ```
-## Examples
 
 ### Active Media (UAC)
 
@@ -44,9 +52,9 @@ The UAC is responsible for the dialog creation and closure.
 
 Single call is made.
 
-Audio is played from a pcap file.
+Audio is played from a pcap file for 90 seconds, before the call is terminated.
 
-Example shows a single call being made to DEST_IP with the destination number of DEST_NUMBER and the From header set to FROM_NUMBER.
+Example shows a single call being made to DEST_IP with the destination number of DEST_NUMBER and the From header set to FROM_NUMBER. The DOCKER_HOST_IP is the IP address of the Docker host.
 
 Scenario options for g711a, g711u and g722 are included.
 
@@ -110,6 +118,16 @@ NOTE: Tested with [Test Call](https://testcall.com/804-222-1111/).
 
 ```
 $ docker run -it -v $PWD/scenarios:/sipp -p 5060:5060/udp sieteunoseis/sipp -sf uac-dtmf.xml DEST_IP -s DEST_NUMBER -key tel FROM_NUMBER -key host_ip DOCKER_HOST_IP -m 1
+```
+
+### OPTIONS (UAC)
+
+UAC scenario for sending OPTIONS.
+
+Single request is sent.
+
+```
+$ docker run -it -v $PWD/scenarios:/sipp -p 5060:5060/udp sieteunoseis/sipp -sf uac-options.xml DEST_IP -s DEST_NUMBER -key tel FROM_NUMBER -key host_ip DOCKER_HOST_IP -m 1
 ```
 
 ### Call ID (UAC)
