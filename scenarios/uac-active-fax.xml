@@ -26,21 +26,21 @@
     <![CDATA[
 
       INVITE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
-      Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
-      From: sipp <sip:sipp@[local_ip]:[local_port]>;tag=[pid]SIPpTag09[call_number]
+      Via: SIP/2.0/[transport] [host_ip]:[local_port];branch=[branch]
+      From: sipp <sip:sipp@[host_ip]:[local_port]>;tag=[pid]SIPpTag09[call_number]
       To: [service] <sip:[service]@[remote_ip]:[remote_port]>
       Call-ID: [call_id]
       CSeq: 1 INVITE
-      Contact: sip:sipp@[local_ip]:[local_port]
+      Contact: sip:sipp@[host_ip]:[local_port]
       Max-Forwards: 70
-      Subject: Performance Test
+      Subject: SIPp Fax Test
       Content-Type: application/sdp
       Content-Length: [len]
 
       v=0
-      o=user1 53655765 2353687637 IN IP[local_ip_type] [local_ip]
+      o=user1 53655765 2353687637 IN IP[local_ip_type] [host_ip]
       s=-
-      c=IN IP[local_ip_type] [local_ip]
+      c=IN IP[local_ip_type] [host_ip]
       t=0 0
       m=audio [media_port] RTP/AVP 8 101
       a=rtpmap:8 PCMA/8000
@@ -68,12 +68,12 @@
     <![CDATA[
 
       ACK sip:[service]@[remote_ip]:[remote_port] SIP/2.0
-      Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
-      From: sipp <sip:sipp@[local_ip]:[local_port]>;tag=[pid]SIPpTag09[call_number]
+      Via: SIP/2.0/[transport] [host_ip]:[local_port];branch=[branch]
+      From: sipp <sip:sipp@[host_ip]:[local_port]>;tag=[pid]SIPpTag09[call_number]
       To: [service] <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
       Call-ID: [call_id]
       CSeq: 1 ACK
-      Contact: sip:sipp@[local_ip]:[local_port]
+      Contact: sip:sipp@[host_ip]:[local_port]
       Max-Forwards: 70
       Subject: Performance Test
       Content-Length: 0
@@ -110,12 +110,12 @@
       [last_To:];tag=[call_number]
       [last_Call-ID:]
       [last_CSeq:]
-      Contact: <sip:[local_ip]:[local_port];transport=[transport]>
+      Contact: <sip:[host_ip]:[local_port];transport=[transport]>
       Content-Type: application/sdp
       Content-Length: [len]
 
       v=0
-      o=user1 53655765 2353687637 IN IP[local_ip_type] [local_ip]
+      o=user1 53655765 2353687637 IN IP[local_ip_type] [host_ip]
       s=-
       c=IN IP[media_ip_type] [media_ip]
       t=0 0
@@ -139,18 +139,18 @@
   <send retrans="500">
     <![CDATA[
       INVITE [$1] SIP/2.0
-      Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
+      Via: SIP/2.0/[transport] [host_ip]:[local_port];branch=[branch]
       From: [$2];tag=[call_number]
       To: [$1]
       [last_Call-ID:]
       CSeq: 1 INVITE
-      Contact: sip:[local_ip]:[local_port]
+      Contact: sip:[host_ip]:[local_port]
       Max-Forwards: 10
       Content-Type: application/sdp
       Content-Length: [len]
 
       v=0
-      o=BroadWorks 65527945 2 IN IP[local_ip_type] [local_ip]
+      o=BroadWorks 65527945 2 IN IP[local_ip_type] [host_ip]
       s=-
       c=IN IP[media_ip_type] [media_ip]
       t=0 0
@@ -178,12 +178,12 @@
     <![CDATA[
 
       ACK [$1] SIP/2.0
-      Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
-      From: <sip:[local_ip]>;tag=[call_number]
+      Via: SIP/2.0/[transport] [host_ip]:[local_port];branch=[branch]
+      From: <sip:[host_ip]>;tag=[call_number]
       [last_To:]
       Call-ID: [call_id]
       CSeq: [cseq] ACK
-      Contact: sip:[local_ip]:[local_port]
+      Contact: sip:[host_ip]:[local_port]
       Max-Forwards: 10
       Content-Length: 0
 
@@ -198,12 +198,12 @@
     <![CDATA[
 
       BYE [$1] SIP/2.0
-      Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
-      From: <sip:[local_ip]>;tag=[call_number]      
+      Via: SIP/2.0/[transport] [host_ip]:[local_port];branch=[branch]
+      From: <sip:[host_ip]>;tag=[call_number]      
       [last_To:]
       Call-ID: [call_id]
       CSeq: [cseq] BYE
-      Contact: sip:sipp@[local_ip]:[local_port]
+      Contact: sip:sipp@[host_ip]:[local_port]
       Max-Forwards: 10
       Content-Length: 0
 
