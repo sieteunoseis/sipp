@@ -114,6 +114,8 @@
     ]]>
   </send>
 
+  <recv request="ACK"/>
+
   <!-- Keep call open to be able to retransmit stuff -->
   <timewait milliseconds="2000"/>
 
