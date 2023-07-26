@@ -83,32 +83,26 @@
 
   <!-- *****************************************************************
 
-  Initiate re-INVITE to T38.
+  Respond to re-INVITE to T38.
 
   ****************************************************************** -->
+
+  <recv request="INVITE"/>
 
   <send start_txn="t38invite">
     <![CDATA[
 
-      INVITE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
-      Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
-      From: <sip:[tel]@[local_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
-      To: [service] <sip:[service]@[remote_ip]:[remote_port]>
-      Call-ID: [call_id]
-      CSeq: 102 INVITE
-      Contact: sip:[tel]@[local_ip]:[local_port]
+      SIP/2.0 200 OK
+      [last_Via:]
+      [last_Record-Route:]
+      [last_From:]
+      [last_To:]
+      Contact: sip:[service]@[local_ip]:[local_port]
+      [last_Call-ID:]
+      [last_CSeq:]
       Max-Forwards: 70
-      Subject: T38 Invite
       Content-Type: application/sdp
       Content-Length: [len]
-
-      v=0
-      o=- 145280 145280 IN IP[local_ip_type] [local_ip]
-      s=-
-      c=IN IP[media_ip_type] [media_ip]
-      t=0 0
-      m=image [media_port] udptl t38
-
       v=0
       o=- 1690247308 2 IN IP[local_ip_type] [local_ip]
       s=SIPp/v.3.7.1
