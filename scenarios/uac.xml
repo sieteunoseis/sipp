@@ -4,11 +4,11 @@
   <![CDATA[  
   INVITE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
   Via: SIP/2.0/[transport] [host_ip]:[local_port]
-  From: sipp <sip:sipp@[host_ip]:[local_port]>;tag=[call_number]
-  To: sut <sip:[service]@[remote_ip]:[remote_port]>
+  From: SIPp <sip:[tel]@[host_ip]:[local_port]>;tag=[call_number]
+  To: <sip:[service]@[remote_ip]:[remote_port]>
   Call-ID: [call_id]
   CSeq: 1 INVITE
-  Contact: sip:sipp@[host_ip]:[local_port]
+  Contact: sip:[tel]@[host_ip]:[local_port]
   Content-Type: application/sdp
   Content-Length: [len]
   
@@ -35,8 +35,8 @@
   <![CDATA[
   ACK sip:[service]@[remote_ip]:[remote_port] SIP/2.0
   Via: SIP/2.0/[transport] [host_ip]:[local_port]
-  From: sipp <sip:sipp@[host_ip]:[local_port]>;tag=[call_number]
-  To: sut <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
+  From: SIPp <sip:[tel]@[host_ip]:[local_port]>;tag=[call_number]
+  To: <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
   Call-ID: [call_id]
   Cseq: 1 ACK
   Contact: sip:sipp@[host_ip]:[local_port]
@@ -50,8 +50,8 @@
   <![CDATA[
   BYE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
   Via: SIP/2.0/[transport] [host_ip]:[local_port]
-  From: sipp  <sip:sipp@[host_ip]:[local_port]>;tag=[call_number]
-  To: sut  <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
+  From: <sip:[tel]@[host_ip]:[local_port]>;tag=[call_number]
+  To: <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
   Call-ID: [call_id]
   Cseq: 2 BYE
   Contact: sip:sipp@[host_ip]:[local_port]
