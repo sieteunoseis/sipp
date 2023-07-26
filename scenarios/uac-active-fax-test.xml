@@ -93,7 +93,7 @@
     ]]>
   </send>  
 
-  <recv response="488">
+  <recv response="200" rtd="true" crlf="true">
   </recv>
 
   <send>
