@@ -89,7 +89,7 @@
 
   <recv request="INVITE"/>
 
-  <send start_txn="t38invite">
+  <send>
     <![CDATA[
 
       SIP/2.0 200 OK
