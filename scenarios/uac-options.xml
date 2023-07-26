@@ -23,12 +23,12 @@
   <send retrans="3">
     <![CDATA[
       OPTIONS sip:[service]@[remote_ip]:[remote_port] SIP/2.0
-      Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
-      From: "Anonymous" <sip:Anonymous@[local_ip]:[local_port]>;tag=[call_number]
+      Via: SIP/2.0/[transport] [host_ip]:[local_port];branch=[branch]
+      From: "Anonymous" <sip:Anonymous@[host_ip]:[local_port]>;tag=[call_number]
       To: sip:[service]@[remote_ip]:[remote_port]
       Call-ID: [call_id]
       CSeq: 1 OPTIONS
-      Contact: <sip:sipp@[local_ip]:[local_port]>
+      Contact: <sip:sipp@[host_ip]:[local_port]>
       Accept: application/sdp
       Content-Length: 0
     ]]>

@@ -98,20 +98,6 @@ Audio is played from a pcap file.
 $ docker run -it -v $PWD/scenarios:/sipp -p 5060:5060/udp sieteunoseis/sipp -sf uac-hold.xml DEST_IP -s DEST_NUMBER -key tel FROM_NUMBER -m 1
 ```
 
-### FAX (UAC) - Work in progress. Not working.
-
-UAC scenario for sending a fax.
-
-Single call is made.
-
-Audio is played from a pcap file.
-
-NOTE: This scenario is untested, Twilio does not support T.38.
-
-```
-$ docker run -it -v $PWD/scenarios:/sipp -p 5060:5060/udp sieteunoseis/sipp -sf uac-active-fax.xml DEST_IP -s DEST_NUMBER -key tel FROM_NUMBER -m 1
-```
-
 ### DTMF (UAC)
 
 UAC scenario for sending dtmf tones.
@@ -142,6 +128,23 @@ Example:
     Call-ID: 5d91975e-202d-44a6-b374-4171e64bb785
     ...
 ```
+
+### Adding additional ports to docker container
+
+If you need to add additional ports to the docker container you can use the `-p` argument.
+
+Example:
+
+```
+-p 5060:5060/udp -p 5061:5061/udp -p 5062:5062/udp
+```
+
+Example Range:
+
+```
+-p 5000-6000:5000-6000/udp
+```
+
 
 ### Other Examples/Scenarios/Guides
 

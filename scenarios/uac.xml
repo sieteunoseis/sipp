@@ -3,17 +3,17 @@
  <send>
   <![CDATA[  
   INVITE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
-  Via: SIP/2.0/[transport] [local_ip]:[local_port]
-  From: sipp <sip:sipp@[local_ip]:[local_port]>;tag=[call_number]
+  Via: SIP/2.0/[transport] [host_ip]:[local_port]
+  From: sipp <sip:sipp@[host_ip]:[local_port]>;tag=[call_number]
   To: sut <sip:[service]@[remote_ip]:[remote_port]>
   Call-ID: [call_id]
   CSeq: 1 INVITE
-  Contact: sip:sipp@[local_ip]:[local_port]
+  Contact: sip:sipp@[host_ip]:[local_port]
   Content-Type: application/sdp
   Content-Length: [len]
   
   v=0
-  o=user1 53655765 2353687637 IN IP[local_ip_type] [local_ip]
+  o=user1 53655765 2353687637 IN IP[local_ip_type] [host_ip]
   s=-
   t=0 0
   c=IN IP[media_ip_type] [media_ip]
@@ -34,12 +34,12 @@
  <send>
   <![CDATA[
   ACK sip:[service]@[remote_ip]:[remote_port] SIP/2.0
-  Via: SIP/2.0/[transport] [local_ip]:[local_port]
-  From: sipp <sip:sipp@[local_ip]:[local_port]>;tag=[call_number]
+  Via: SIP/2.0/[transport] [host_ip]:[local_port]
+  From: sipp <sip:sipp@[host_ip]:[local_port]>;tag=[call_number]
   To: sut <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
   Call-ID: [call_id]
   Cseq: 1 ACK
-  Contact: sip:sipp@[local_ip]:[local_port]
+  Contact: sip:sipp@[host_ip]:[local_port]
   Content-Length: 0
   ]]>
  </send>
@@ -49,12 +49,12 @@
  <send retrans="500">
   <![CDATA[
   BYE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
-  Via: SIP/2.0/[transport] [local_ip]:[local_port]
-  From: sipp  <sip:sipp@[local_ip]:[local_port]>;tag=[call_number]
+  Via: SIP/2.0/[transport] [host_ip]:[local_port]
+  From: sipp  <sip:sipp@[host_ip]:[local_port]>;tag=[call_number]
   To: sut  <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
   Call-ID: [call_id]
   Cseq: 2 BYE
-  Contact: sip:sipp@[local_ip]:[local_port]
+  Contact: sip:sipp@[host_ip]:[local_port]
   Content-Length: 0
   ]]>
  </send>
