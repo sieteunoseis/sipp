@@ -180,6 +180,16 @@
     ]]>
   </send>
 
+    <!-- Enable the nop/action below to replay the FAX image. You may need to use
+       the -i MY_IP command line option. -->
+  <pause milliseconds="500"/>
+
+  <nop>
+    <action>
+      <exec play_pcap_image="./pcap/fax.pcap"/>
+    </action>
+  </nop>
+
   <recv request="ACK"/>
 
   <recv request="BYE"/>
@@ -246,6 +256,7 @@
   <recv response="200" response_txn="bye" next="done"/>
 
 
+
   <!-- *****************************************************************
 
   Finalize
@@ -256,16 +267,6 @@
 
   <!-- Keep call open to be able to retransmit stuff -->
   <timewait milliseconds="2000"/>
-
-  <!-- Enable the nop/action below to replay the FAX image. You may need to use
-       the -i MY_IP command line option. -->
-  <pause milliseconds="500"/>
-
-  <nop>
-    <action>
-      <exec play_pcap_image="./pcap/fax.pcap"/>
-    </action>
-  </nop>
 
 
 </scenario><!-- vim: set ts=8 sw=2 sts=2 et ai: -->
