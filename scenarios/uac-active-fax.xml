@@ -81,6 +81,8 @@
     ]]>
   </send>
 
+    <pause milliseconds="500"/>
+
   <!-- Play a pre-recorded PCAP file (RTP stream)                       -->
   <nop>
     <action>
@@ -88,7 +90,6 @@
     </action>
   </nop>
 
-  <pause milliseconds="500"/>
   <!-- Pause 8 seconds, which is approximately the duration of the      -->
   <!-- PCAP file                                                        -->
   <pause milliseconds="5000"/>
