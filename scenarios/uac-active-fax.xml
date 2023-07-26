@@ -114,21 +114,11 @@
     ]]>
   </send>
 
-  <recv request=".*" regexp_match="true" />
-
-  <send>
-    <![CDATA[
-      SIP/2.0 200 OK
-      [last_Via:]
-      [last_From:]
-      [last_To:]
-      [last_Call-ID:]
-      [last_CSeq:]
-      Contact: <sip:[local_ip]:[local_port];transport=[transport]>
-      Content-Length: 0
-
-    ]]>
-  </send>
+  <nop>
+        <action>
+        <exec play_pcap_audio="./pcap/fax.pcap"/>
+        </action>
+  </nop>
 
   <!-- Keep the call open for a while in case the 200 is lost to be     -->
   <!-- able to retransmit it if we receive the BYE again.               -->
