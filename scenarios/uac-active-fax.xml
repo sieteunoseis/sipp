@@ -86,14 +86,14 @@
   <send>
     <![CDATA[
 
-      SIP/2.0 180 Ringing
+      SIP/2.0 100 Trying
       [last_Via:]
       [last_From:]
       [last_To:]
       [last_Call-ID:]
       [last_CSeq:]
       Server: VIRTUAL Mitel-3300-ICP 12.0.1.99
-      Contact: <sip:[local_ip]:[local_port];transport=[transport]>
+      Contact: <sip:[host_ip]:[local_port];transport=[transport]>
       Content-Length: 0
 
     ]]>
