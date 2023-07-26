@@ -120,28 +120,22 @@
     ]]>
   </send>
 
-  <recv response="100" optional="true" response_txn="t38invite"/>
+  <recv request=".*" regexp_match="true" />
 
-  <recv response="488" optional="true" response_txn="t38invite"/>
-
-  <recv response="200" response_txn="t38invite"/>
-
-  <send ack_txn="t38invite">
+  <send>
     <![CDATA[
-
-      ACK [next_url] SIP/2.0
+      SIP/2.0 200 OK
       [last_Via:]
-      [routes]
       [last_From:]
       [last_To:]
-      Contact: sip:[service]@[local_ip]:[local_port]
-      Call-ID: [call_id]
-      CSeq: [cseq] ACK
-      Max-Forwards: 70
+      [last_Call-ID:]
+      [last_CSeq:]
+      Contact: <sip:[local_ip]:[local_port];transport=[transport]>
       Content-Length: 0
 
     ]]>
   </send>
+
 
   <!-- Enable the nop/action below to replay the FAX image. You may need to use
        the -i MY_IP command line option. -->
