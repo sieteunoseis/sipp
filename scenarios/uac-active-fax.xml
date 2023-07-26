@@ -99,40 +99,11 @@
     ]]>
   </send>
 
-  <send retrans="500">
-    <![CDATA[
-
-      SIP/2.0 200 OK
-      [last_Via:]
-      [last_Record-Route:]
-      [last_From:]
-      [last_To:]
-      Contact: sip:[tel]@[host_ip]:[local_port]
-      [last_Call-ID:]
-      [last_CSeq:]
-      Max-Forwards: 70
-      Content-Type: application/sdp
-      Content-Length: [len]
-
-      v=0
-      o=- 145280 145280 IN IP[local_ip_type] [host_ip]
-      s=-
-      c=IN IP[media_ip_type] [media_ip]
-      t=0 0
-      m=image [media_port] udptl t38
-      a=T38FaxVersion:0
-      a=T38MaxBitRate:14400
-      a=T38FaxRateManagement:transferredTCF
-      a=T38FaxMaxBuffer:200
-      a=T38FaxMaxDatagram:200
-      a=T38FaxFillBitRemoval:0
-      a=T38FaxUdpEC:t38UDPRedundancy
-
-    ]]>
-  </send>
-
-  <recv request="ACK" crlf="true">
-  </recv>
+    <nop>
+        <action>
+        <exec play_pcap_audio="./pcap/rtp_pcma_fax_ced_training.pcap"/>
+        </action>
+  </nop>
 
 
   <!-- definition of the response time repartition table (unit is ms)   -->
