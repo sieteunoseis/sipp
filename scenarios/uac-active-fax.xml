@@ -69,12 +69,6 @@
     ]]>
   </send>
 
-  <!-- By adding rrs="true" (Record Route Sets), the route sets         -->
-  <!-- are saved and used for following messages sent. Useful to test   -->
-  <!-- against stateful SIP proxies/B2BUAs.                             -->
-  <recv response="200" rtd="true">
-  </recv>
-
 
   <!-- <recv request=".*" regexp_match="true" /> -->
   <pause milliseconds="10000"/>
@@ -125,22 +119,6 @@
       a=T38FaxMaxDatagram:528
       a=T38FaxUdpEC:t38UDPRedundancy
 
-
-    ]]>
-  </send>
-
-  <recv request=".*" regexp_match="true" />
-
-  <send>
-    <![CDATA[
-      SIP/2.0 200 OK
-      [last_Via:]
-      [last_From:]
-      [last_To:]
-      [last_Call-ID:]
-      [last_CSeq:]
-      Contact: <sip:[local_ip]:[local_port];transport=[transport]>
-      Content-Length: 0
 
     ]]>
   </send>
