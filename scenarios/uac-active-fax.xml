@@ -7,12 +7,12 @@
     <![CDATA[
 
       INVITE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
-      Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
-      From: sipp <sip:sipp@[local_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
+      Via: SIP/2.0/[transport] [host_ip]:[local_port];branch=[branch]
+      From: sipp <sip:sipp@[host_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
       To: [service] <sip:[service]@[remote_ip]:[remote_port]>
       Call-ID: [call_id]
       CSeq: 1 INVITE
-      Contact: sip:sipp@[local_ip]:[local_port]
+      Contact: sip:sipp@[host_ip]:[local_port]
       Max-Forwards: 70
 
     ]]>
@@ -40,18 +40,18 @@
     <![CDATA[
 
       ACK sip:[service]@[remote_ip]:[remote_port] SIP/2.0
-      Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
-      From: sipp <sip:sipp@[local_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
+      Via: SIP/2.0/[transport] [host_ip]:[local_port];branch=[branch]
+      From: sipp <sip:sipp@[host_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
       To: [service] <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
       Call-ID: [call_id]
       CSeq: 1 ACK
-      Contact: sip:sipp@[local_ip]:[local_port]
+      Contact: sip:sipp@[host_ip]:[local_port]
       Max-Forwards: 70
       Content-Type: application/sdp
       Content-Length: [len]
 
       v=0
-      o=user1 53655765 2353687637 IN IP[local_ip_type] [local_ip]
+      o=user1 53655765 2353687637 IN IP[local_ip_type] [host_ip]
       s=-
       c=IN IP[media_ip_type] [media_ip]
       t=0 0
@@ -74,7 +74,7 @@
   <!-- or by adding a 'milliseconds = "value"' option here.             -->
   <pause milliseconds="3000"/>
 
-    <!-- *****************************************************************
+  <!-- *****************************************************************
 
   Wait for re-INVITE to T38.
 
@@ -90,7 +90,7 @@
       [last_Record-Route:]
       [last_From:]
       [last_To:]
-      Contact: sip:[tel]@[local_ip]:[local_port]
+      Contact: sip:[tel]@[host_ip]:[local_port]
       [last_Call-ID:]
       [last_CSeq:]
       Max-Forwards: 70
@@ -98,7 +98,7 @@
       Content-Length: [len]
 
       v=0
-      o=- 145280 145280 IN IP[local_ip_type] [local_ip]
+      o=- 145280 145280 IN IP[local_ip_type] [host_ip]
       s=-
       c=IN IP[media_ip_type] [media_ip]
       t=0 0
@@ -126,7 +126,7 @@
       [last_Record-Route:]
       [last_From:]
       [last_To:]
-      Contact: sip:[tel]@[local_ip]:[local_port]
+      Contact: sip:[tel]@[host_ip]:[local_port]
       [last_Call-ID:]
       [last_CSeq:]
       Content-Length: 0
@@ -139,12 +139,12 @@
     <![CDATA[
 
       BYE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
-      Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
-      From: sipp <sip:sipp@[local_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
+      Via: SIP/2.0/[transport] [host_ip]:[local_port];branch=[branch]
+      From: sipp <sip:sipp@[host_ip]:[local_port]>;tag=[pid]SIPpTag00[call_number]
       To: [service] <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
       Call-ID: [call_id]
       CSeq: 2 BYE
-      Contact: sip:sipp@[local_ip]:[local_port]
+      Contact: sip:sipp@[host_ip]:[local_port]
       Max-Forwards: 70
       Subject: Performance Test
       Content-Length: 0
