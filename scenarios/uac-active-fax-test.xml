@@ -194,7 +194,7 @@
 
   <recv request="BYE"/>
 
-  <send next="done">
+  <send>
     <![CDATA[
 
       SIP/2.0 200 OK
