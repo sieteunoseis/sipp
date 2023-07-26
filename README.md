@@ -127,7 +127,17 @@ UAC scenario for sending OPTIONS.
 Single request is sent.
 
 ```
-$ docker run -it -v $PWD/scenarios:/sipp -p 5060:5060/udp sieteunoseis/sipp -sf uac-options.xml DEST_IP -s DEST_NUMBER -key tel FROM_NUMBER -key host_ip DOCKER_HOST_IP -m 1
+$ docker run -it -v $PWD/scenarios:/sipp -p 5060:5060/udp sieteunoseis/sipp -sf uac-options.xml DEST_IP -key host_ip DOCKER_HOST_IP -m 1
+```
+
+### OPTIONS (UAS)
+
+UAS scenario for recieving OPTIONS.
+
+Single request is sent.
+
+```
+$ docker run -it -v $PWD/scenarios:/sipp -p 5060:5060/udp sieteunoseis/sipp -sf uas-options.xml DEST_IP -key host_ip DOCKER_HOST_IP -m 1
 ```
 
 ### Call ID (UAC)
