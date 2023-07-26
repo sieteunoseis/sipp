@@ -60,6 +60,7 @@
       To: [service] <sip:[service]@[remote_ip]:[remote_port]>[peer_tag_param]
       Call-ID: [call_id]
       CSeq: 1 ACK
+      Subject: ACK for INVITE
       Contact: sip:[tel]@[local_ip]:[local_port]
       Max-Forwards: 70
       Content-Length: 0
