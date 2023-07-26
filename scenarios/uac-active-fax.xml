@@ -80,7 +80,7 @@
 
   ****************************************************************** -->
 
-   <recv request="INVITE" crlf="true">
+  <recv request="INVITE" crlf="true">
   </recv>
 
   <send>
@@ -130,6 +130,9 @@
 
     ]]>
   </send>
+
+  <recv request="ACK" crlf="true">
+  </recv>
 
   <nop>
         <action>
