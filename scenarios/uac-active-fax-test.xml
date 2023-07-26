@@ -61,6 +61,12 @@
   </send>
 
   <pause milliseconds="5000" />
+
+  <nop>
+        <action>
+        <exec play_pcap_audio="./pcap/dtmf_2833_2.pcap"/>
+        </action>
+  </nop>
   
   <send retrans="500">
     <![CDATA[
@@ -116,29 +122,7 @@
 
   <pause milliseconds="5000" />
 
-<!--
-  <send retrans="500">
-    <![CDATA[
 
-      BYE sip:[remote_ip]:[remote_port] SIP/2.0
-      Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
-      From: <sip:[local_ip]>;tag=[call_number]      
-      [last_To:]
-      Call-ID: [call_id]
-      CSeq: [cseq] BYE
-      Contact: sip:sipp@[local_ip]:[local_port]
-      Max-Forwards: 10
-      Content-Length: 0
-
-    ]]>
-  </send>
--->  
-
-  <!-- The 'crlf' option inserts a blank line in the statistics report. -->
-  <recv response="200" crlf="true">
-  </recv>
-  
-  <pause milliseconds="1500" />
 
 
   <!-- definition of the response time repartition table (unit is ms)   -->
