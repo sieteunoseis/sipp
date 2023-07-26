@@ -101,7 +101,7 @@
 
     <nop>
         <action>
-        <exec play_pcap_audio="./pcap/rtp_pcma_fax_ced_training.pcap"/>
+        <exec play_pcap_image="./pcap/sendfax-wjdtest20150505.pcap"/>
         </action>
   </nop>
 
