@@ -90,7 +90,7 @@
 
   <pause milliseconds="1000"/>
 
-  <recv request=".*" regexp_match="true" />
+  <recv request="INVITE"/>
 
   <send>
     <![CDATA[
