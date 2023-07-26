@@ -154,7 +154,7 @@
       s=-
       c=IN IP[media_ip_type] [media_ip]
       t=0 0
-      m=image 666 udptl t38
+      m=image [media_port] udptl t38
       a=sendrecv
       a=T38FaxVersion:0
       a=T38MaxBitRate:9600
