@@ -183,3 +183,12 @@ Example Range:
 - [sipp with Cisco CUCM](https://dmkravch.github.io/2018-01-21-sipp-with-cucm/)
 - [Generating SIP traffic with SIPp (Video)](https://www.youtube.com/watch?v=Z3XQ3qZ3XqQ)
 - [ctaloi/sipp](https://hub.docker.com/r/ctaloi/sipp)
+
+### Packet capture on Docker host (Ubuntu Linux)
+
+```
+tcpdump -s 0 -i ens160 -w sipp.pcap
+```
+
+### Cisco CUCM SIP Trunk Configuration
+
