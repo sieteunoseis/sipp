@@ -163,7 +163,7 @@ Example:
     ...
 ```
 
-### Adding additional ports to docker container
+### Adding additional ports to Docker Container
 
 If you need to add additional ports to the Docker Container you can use the `-p` argument. This is usually required if you are using a scenario that requires RTP ports.
 
@@ -177,6 +177,12 @@ Example (Range of Ports):
 
 ```
 -p 5000-6000:5000-6000/udp
+```
+
+Or you can expose the constainer to the host network instead of mapping ports. It allows the container greater network access than it can normally get.
+
+```
+--net=host
 ```
 
 
