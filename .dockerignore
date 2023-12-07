@@ -1,0 +1,27 @@
+# Ignore files and directories commonly used in Docker projects
+.dockerignore
+.dockerignore.example
+.dockerignore.sample
+.git
+.gitignore
+.svn
+.hg
+.CVS
+.idea
+.vscode
+*.swp
+*.bak
+*.tmp
+*.log
+*.cache
+*.DS_Store
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+node_modules
+bower_components
+*.env
+env
+env.example
+screenshots

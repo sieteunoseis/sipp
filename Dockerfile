@@ -2,10 +2,10 @@ FROM ubuntu:latest as build
 
 LABEL "author"="github.com/sieteunoseis"
 LABEL "system"="ubuntu:latest"
-LABEL "version"="SIPp v3.7.1"
+LABEL "version"="SIPp v3.7.2"
 LABEL "description"="SIPP with sctp, pcap and openssl support"
 
-ARG SIPP_VERSION=3.7.1
+ARG SIPP_VERSION=3.7.2
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
@@ -19,7 +19,7 @@ RUN make all
 FROM ubuntu:latest
 RUN apt-get update
 RUN apt-get install -y libssl-dev libpcap-dev libncurses5-dev libsctp-dev
-COPY --from=build /sipp-3.7.1/sipp /usr/local/bin/
+COPY --from=build /sipp-3.7.2/sipp /usr/local/bin/
 WORKDIR /sipp
 
 EXPOSE 5060
