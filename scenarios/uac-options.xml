@@ -16,12 +16,12 @@
     ]]>
   </send>
 
+  <pause milliseconds="5000"/>
+
   <recv response="200" rtd="true" timeout="200">
   </recv>
 
-  <pause milliseconds="5000"/>
-
-  <send retrans="3">
+  <!-- <send retrans="3">
     <![CDATA[
       OPTIONS sip:[service]@[remote_ip]:[remote_port] SIP/2.0
       Via: SIP/2.0/[transport] [host_ip]:[local_port];branch=[branch]
@@ -55,6 +55,6 @@
   </send>
 
   <recv response="200" rtd="true" timeout="200">
-  </recv>
+  </recv> -->
 
 </scenario>
