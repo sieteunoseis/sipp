@@ -16,8 +16,6 @@
     ]]>
   </send>
 
-  <pause milliseconds="5000"/>
-
   <recv response="200" rtd="true" timeout="200">
   </recv>
 
